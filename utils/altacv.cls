@@ -23,7 +23,7 @@
 % Origin: https://github.com/liantze/AltaCV
 %%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{altacv}[2021/08/22 AltaCV v1.6.1, yet another alternative class for a resume/curriculum vitae.]
+\ProvidesClass{utils/altacv}[2021/08/22 AltaCV v1.6.1, yet another alternative class for a resume/curriculum vitae.]
 %
 %% v1.1: Optionally load academicons
 %% v1.4: Nope, academicons is unnecessary; fontawesome5 has \faOrcid.

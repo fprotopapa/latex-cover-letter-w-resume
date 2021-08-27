@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later. 
+%%%%%%%%%%%%%%%%
+% @ Fabbio Protopapa (Aug 2021)
+% Modified template
+% Origin: https://github.com/liantze/AltaCV
+%%%%%%%%%%%%%%%%
+% Examples:
+% https://www.overleaf.com/project/61278bc6f29e5426d64bbbf8
+% https://github.com/daguiam/cv-daguiam
+% https://www.overleaf.com/project/6128d1908a28714b79cf349f (Cover Letter)
+%
+\documentclass[10pt,a4paper,ragged2e,withhyper]{utils/altacv}
+\geometry{hmargin=2.54cm, vmargin=2.54cm}
+\usepackage{paracol}
+\usepackage{afterpage}
+\usepackage[nodayofweek]{datetime} % Remove for Month dd yyyy
+%
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+%
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+% 
+\colorlet{name}{black}
+\colorlet{tagline}{black}
+\colorlet{heading}{black} 
+\colorlet{headingrule}{LightGrey}
+\colorlet{subheading}{black}
+\colorlet{accent}{LightGrey} % Symbols & Personal Information
+\colorlet{emphasis}{black}
+\colorlet{body}{black}
+%
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+%
+\input{personalInformation.tex}
+%
+\input{utils/coverLetterCommands.tex}
+%
+\begin{document}
+%
+\namesection{\varName}{\varSurname}{\printinfoNoSpace{\faAt}{\varEmail}[mailto:] | \printinfoNoSpace{\faPhone}{\varPhone}[tel:] | \printinfoNoSpace{\faGithub}{\varGithub}[https://github.com/] | \printinfoNoSpace{\faLinkedin}{\varLinkedin}[https://linkedin.com/]}
+%
+\begin{minipage}[t]{0.5\textwidth} 
+\companyname{\varCompanyName}
+\companyaddress{
+\varCompanyDepartment \\
+\varCompanyStreet \\
+\varCompanyCity
+}
+%
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth} 
+\currentdate{\today}
+\end{minipage}
+%
+\input{coverLetterContent/coverLetterContent.tex}
+%
+\vspace{0.5cm}
+%
+\closing{Sincerely,\\ \vspace{.1cm} \includegraphics[width=4cm]{\varSignaturePath} \vspace{-1cm} }
+%
+\signature{\varFullname}
+%
+\newpage
+%
+\newgeometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+%
+\colorlet{accent}{black} % reset icon color
+% 
+\name{\varFullname}
+\tagline{\varTagline}
+\photoR{2.8cm}{\varImagePath}
+\personalinfo{%
+  \emptyline{} \par % Setting space btw top and icons
+  \emptyline{} \par
+  \emptyline{} \par
+  \emptyline{} \par
+  \emptyline{} \par
+  \mailaddress{\varStreet,}
+  \secondline{\varCity}
+  \birthdate{\varBirthday}
+}
+%
+\contactinfo{%
+  \emptyline{} \par
+  \emptyline{} \par
+  \emptyline{} \par
+  \emptyline{} \par
+  \emptyline{} \par
+  \email{\varEmail}
+  \phone{\varPhone}
+  \linkedin{\varLinkedin}
+  \github{\varGithub}
+}
+%
+%% You can add your own arbitrary detail with
+%% \printinfo{symbol}{detail}[optional hyperlink prefix]
+% \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+%
+\makecvheader
+%
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+%
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+%
+\input{resumeContent/resumeContentProfile.tex}
+%
+\input{resumeContent/resumeContentEducation.tex}
+%
+\input{resumeContent/resumeContentExperience.tex}
+%
+%
+\switchcolumn
+%
+%
+\input{resumeContent/resumeContentSkills.tex}
+%
+\end{paracol}
+%
+\end{document}
